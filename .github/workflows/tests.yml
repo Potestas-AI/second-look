@@ -1,0 +1,36 @@
+name: tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ["3.9", "3.10", "3.12", "3.13"]
+        exclude:
+          - os: macos-latest
+            python: "3.9"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: The commands from the front page
+        shell: bash
+        run: |
+          python second_look.py samples/promptfoo_twelve_checks.json
+          python second_look.py samples/promptfoo_real_answers.json --list
+          python second_look.py samples/garak_has_any.report.jsonl
+          python second_look.py samples/inspect_blank_answers.json
+          python second_look.py samples/promptfoo_twelve_checks.json --html card.html
+          python second_look.py samples/promptfoo_twelve_checks.json --json > card.json
+      - name: Sample tests and attack tests
+        shell: bash
+        run: |
+          for t in test_samples test_holes test_holes_2 test_holes_3 test_holes_4 test_holes_5 test_holes_6 test_holes_7; do
+            echo "== $t"
+            python "tests/$t.py"
+          done
