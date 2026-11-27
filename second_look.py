@@ -963,7 +963,7 @@ button:hover{{border-color:var(--ink)}}
 <button onclick="navigator.clipboard.writeText(document.getElementById('short').textContent);this.textContent='Copied'">Copy</button></div>
 {rows}
 <div class="not"><b>NOT CHECKED</b>What this AI actually does when it has real tools. No test results file can show that.</div>
-<div class="foot">Made with Second Look, a free inspector for AI safety tests from<a href="https://potestasai.com">Potestas AI</a>.
+<div class="foot">Made with Second Look, a free inspector for AI safety tests from <a href="https://potestasai.com">Potestas AI</a>.
 HIGH means the score is wrong or can't be trusted. MEDIUM means be careful. LOW is good to know. These rate the test, not the AI.
 <br><br>This card is an automatic reading of one results file. It can be wrong. Look at the answers it points to before you act on it.</div>
 </div></html>"""

@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: "Second Look: AI Safety Test Inspector"
+message: "If you use this tool or its findings, please cite it."
+type: software
+authors:
+  - family-names: Cirello
+    given-names: Joseph
+    affiliation: Potestas AI
+repository-code: "https://github.com/Potestas-AI/second-look"
+url: "https://potestasai.com"
+abstract: >-
+  An inspector for the inspectors. Second Look reads the result file written by promptfoo, garak or Inspect
+  and reports whether the safety score on it can be trusted: answers passed without being graded, refusal
+  words matched inside other words, blank answers that were graded, and runs that stopped early. It runs no
+  test and calls no model.
+keywords:
+  - AI safety
+  - LLM evaluation
+  - red teaming
+  - promptfoo
+  - garak
+  - Inspect
+  - AI agents
+license: MIT
+date-released: "2026-11-27"

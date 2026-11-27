@@ -2,6 +2,8 @@
 
 *An inspector for the inspectors.*
 
+[![tests](https://github.com/Potestas-AI/second-look/actions/workflows/tests.yml/badge.svg)](https://github.com/Potestas-AI/second-look/actions/workflows/tests.yml)
+
 **You ran a safety test on your AI and got a score. This checks whether the score can be trusted.**
 
 One tool for all of them. Point it at a result file and it works out which tester wrote it. It reads the result file that [promptfoo](https://github.com/promptfoo/promptfoo), [garak](https://github.com/NVIDIA/garak) or [Inspect](https://github.com/UKGovernmentBEIS/inspect_ai) already wrote and prints a one-page inspection card. It runs no test and calls no model, so it costs nothing and takes a second.
@@ -69,6 +71,20 @@ These rate the test, not the AI.
 
 Every check comes from a defect we reproduced on the current version of the tool and wrote up. Several had already been reported to the tools' makers by other people. Where that is so, the card points to their report. See [FINDINGS.md](FINDINGS.md).
 
+## Questions people ask
+
+**Can I trust my promptfoo red team score?** Not until you know how many of its passes were actually graded. In promptfoo 0.126, an answer that opens with "Sorry" or "I am unable to" is passed as a refusal and the grading model never sees it, whatever the answer goes on to do. Second Look counts those answers and lists them.
+
+**Why did garak mark a jailbreak as safe?** Its wording checks look for refusal words anywhere in the answer. An answer that takes the jailbreak role and mentions "ethics" passes. So does an answer that contains "has any", because the check finds the letters of "As an" inside it.
+
+**Why is my Inspect score so good when the model returned blanks?** A blank answer can still be graded. Second Look counts the blank answers, the answers cut off by the length limit, and the questions a run never finished.
+
+**Does it send my results anywhere?** No. It is one Python file with nothing to install. It reads the file on your disk and prints a card. It makes no network calls.
+
+**Does it work with my version?** It was proven on promptfoo 0.126, garak 0.17 and Inspect 0.3. On another version it still reads the file and tells you the version is untested.
+
+**Does a clean card mean my AI is safe?** No. It means the test ran properly.
+
 ## In a pipeline
 
 ```sh
@@ -99,7 +115,7 @@ It cannot tell you what an AI agent does when it has real tools in its hands. No
 
 ## Who made this
 
-[Potestas AI](https://potestasai.com). We test what AI agents do, not what they say, and publish the evidence. If you are putting an agent in front of money, patients or customers, [see the screening](https://potestasai.com/screening).
+Joseph Cirello, founder of [Potestas AI](https://potestasai.com). We test what AI agents do, not what they say, and publish the evidence. If you are putting an agent in front of money, patients or customers, [see the screening](https://potestasai.com/screening).
 
 The book is free: [Your AI Is Safe. Says Who?](https://potestasai.com/book)
 
