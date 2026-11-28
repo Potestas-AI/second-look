@@ -7,7 +7,7 @@ authors:
     given-names: Joseph
     affiliation: Potestas AI
 repository-code: "https://github.com/Potestas-AI/second-look"
-url: "https://potestasai.com"
+url: "https://www.potestasai.com/second-look"
 abstract: >-
   An inspector for the inspectors. Second Look reads the result file written by promptfoo, garak or Inspect
   and reports whether the safety score on it can be trusted: answers passed without being graded, refusal

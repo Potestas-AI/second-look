@@ -117,6 +117,8 @@ It cannot tell you what an AI agent does when it has real tools in its hands. No
 
 Joseph Cirello, founder of [Potestas AI](https://potestasai.com). We test what AI agents do, not what they say, and publish the evidence. If you are putting an agent in front of money, patients or customers, [see the screening](https://potestasai.com/screening).
 
+The tool has a page with a real example: [potestasai.com/second-look](https://www.potestasai.com/second-look)
+
 The book is free: [Your AI Is Safe. Says Who?](https://potestasai.com/book)
 
 MIT licence.
